@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element creat in js</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // this div will stord in memory
+    const element = document.createElement('div')
+    console.log(element);
+    element.className = 'main'
+    // element.id = Math.round(Math.random() * 10  +1)
+    element.setAttribute('title', 'generated title')
+    element.style.backgroundColor = "blue"
+    element.style.height = "100px"
+    element.style.width = "400px"
+    element.style.textAlign = "center"
+    element.style.paddingTop = "100px"
+    element.style.borderRadius = "15px"  
+    element.style.color = "white"  
+    // element.innerText = "Sourav Chhimpa"
+    const addtext = document.createTextNode("Sourav Chhimpa")
+    element.appendChild(addtext)
+    document.body.appendChild(element)
+
+    const div = document.createElement('div')
+    div.className = 'div2'
+    div.style.height = "50vh"
+    div.style.width = "100%"
+    div.style.backgroundColor = "#000"
+    div.style.color = "#fff"
+    div.innerText = "hello i am sourav this box will gerneted by the JS"
+    div.textAlign = "center"
+    console.log(div);
+    document.body.appendChild(div)
+
+    const divinside = document.createElement('div')
+    divinside.className = 'div2'
+    divinside.style.height = "50vh"
+    divinside.style.width = "100%"
+    divinside.style.backgroundColor = "#fff"
+    divinside.style.color = "#000"
+    divinside.innerText = "hello  i am inside the container"
+    divinside.textAlign = "center"
+    document.body.appendChild(divinside)
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exp 3 | Digital Clock</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="banner">Your Local Time</div>
+        <div class="clock"></div>
+    </div>
+</body>
+<script>
+    const clock = document.querySelector('.clock')
+    setInterval((e) => {
+        let date = new Date().toLocaleTimeString()
+        clock.innerHTML = date
+    }, 1000);
+</script>
+</html>

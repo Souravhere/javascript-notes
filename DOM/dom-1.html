@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM lecture 3</title>
+</head>
+<body>
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addli(lngname){
+       const elem = document.createElement('li')
+       elem.innerHTML= lngname
+       document.querySelector(".language").appendChild(elem)
+        //document.body.appendChild(elem)
+    }
+    addli("python")
+
+    // not need to traveracing the full tree
+    function addspecial(langname){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+    addspecial("C")
+
+    // edit the value
+    const edit = document.querySelector("li:nth-child(1)")
+    const addtext = document.createElement('li')
+    addtext.textContent = "Typescript"
+    edit.replaceWith(addtext)
+
+    // second way to change the data
+    const editsecond = document.querySelector("li:second-child")
+    editsecond.outerHTML = '<li> Java Script</li>'
+    editsecond.replaceWith()
+
+</script>
+</html>
