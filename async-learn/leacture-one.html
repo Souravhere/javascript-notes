@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async code</h1>
+    <button id="stop">Stop</button>
+    <script>
+        //it is function also call the api
+        setTimeout(() => {
+            console.log("sourav");
+        }, 2000);
+        //use to call a function
+        const lname = function(){console.log("Chhimpa");}
+        setTimeout(lname,1000)
+
+        //how to stop setTimeout() function in mid
+        const text = function(){
+            document.querySelector('h1').innerHTML = "Async Code in javascript"
+        }
+        const set = setTimeout(text,1000)
+        //it will stop the event
+        //clearTimeout(set)
+        document.querySelector('#stop').addEventListener('click',() => {
+            clearTimeout(set)
+            console.log("stoped");
+        })
+    </script>
+</body>
+</html>
