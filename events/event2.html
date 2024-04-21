@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Class 2</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+        }
+        ul{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        li{
+            padding: 10px;
+            border-radius: 15px;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="gun-cart">
+            <li><img src="https://images.pexels.com/photos/163478/war-desert-guns-gunshow-163478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="one"></li>
+            <li><img src="https://images.pexels.com/photos/876344/pexels-photo-876344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="two"></li>
+            <li><img src="https://images.pexels.com/photos/669283/pexels-photo-669283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="three"></li>
+            <li><img src="https://images.pexels.com/photos/876343/pexels-photo-876343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="four"></li>
+        </ul>
+    </div>
+    <script>
+        let guncart = document.querySelector('#gun-cart')
+        guncart.addEventListener('click',(e)=>{
+            // e.target.parentNode.remove()
+            console.log(e.target.tagName);
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                e.target.parentNode.remove()
+            }
+        })
+    </script>
+</body>
+</html>

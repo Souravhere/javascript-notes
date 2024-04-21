@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events One Lecture</title>
+    <style>
+        img{
+            height: 300px;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
-    
+    <img src="https://images.pexels.com/photos/886453/pexels-photo-886453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="gun">
+
+    <a id="link" href="https://fonts.google.com/"><h2>Googole Fonts</h2></a>
+    <script>
+        // types of events, TimeStamp, defaultPrevented
+        // Target, toElement, srcElement, CurrentTarget
+        // clintX,Y, ScreenX,Y, Tiltx, tilty
+        // keys altkey, ctrlkey, shiftkey, keycode
+        document.getElementById('gun').addEventListener('mouseenter',(e)=>{
+            // e is called "Event Object"
+            console.log("gun");
+            console.log(e);
+
+            // to make a element sapratede for the container we will use "stopPropagation()"
+            e.stopPropagation()
+
+        },false)
+        // false is default (part of bubbling) (bottom to top)
+        // captring mode in we use True (top to bottom)
+
+        document.getElementById('link').addEventListener('click',(e)=>{
+            e.preventDefault()
+        })
+    </script>
 </body>
 </html>
