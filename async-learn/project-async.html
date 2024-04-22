@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramdom BG</title>
+    <style>
+        body{
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        .bg{
+            width: 40%;
+            margin: auto;
+            margin-top: 5%;
+            height: 150px;
+            background-color: orange;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        button{
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        button:active{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <button class="bgstart">BG Randome Start</button>
+        <button class="bgstop">BG Ramdom stop</button>
+    </div>
+    <div class="stater">
+        <h1>Sourav <span id="count"></span></h1>
+        <button id="start">Start Count</button>
+        <button id="stop">Stop Count</button>
+        <p>Developed By <b>Sourav</b></p>
+    </div>
+    <script>
+       function startstop(){
+        let countno = 0
+        let count = document.getElementById('count')
+        let stop = document.getElementById('stop')
+        let start = document.getElementById('start')
+        let countf = function(){
+            countno++;
+            count.innerHTML = `${countno}`
+        }
+        let counter;
+        // const counter = setInterval(countf,1000)
+        start.addEventListener('click',()=>{
+            counter = setInterval(countf,1000)
+        })
+        stop.addEventListener('click',()=>{
+            clearInterval(counter)
+        })
+
+       }
+       startstop()
+       //Random color generator
+        function randomcolor(){
+            const hexvalue = "0123456789ABCDEF"
+            let color = '#'
+            for(let i=0; i<6;i++){
+                color += hexvalue[Math.floor(Math.random()*16)]
+            }
+            let bg = document.querySelector('#body')
+            // bg.style.backgroundColor = color
+            return color;
+        }
+
+        // this is the global keyword for the stater
+        let bginterval;
+        const bgcolorstart = function () {
+            if(!bginterval){
+                bginterval = setInterval(changbgbtn,1000)
+            }
+           function changbgbtn(){
+            document.body.style.backgroundColor = randomcolor()
+           }
+        }
+        //her tho stop the bady bg random color chang
+        const bgcolorstop = function(){
+            clearInterval(bginterval);
+            // Help to Protact for the overwright
+            bginterval = null;
+        }
+        document.querySelector('.bgstart').addEventListener('click',bgcolorstart);
+        document.querySelector('.bgstop').addEventListener('click',bgcolorstop);
+    </script>
+</body>
+</html>

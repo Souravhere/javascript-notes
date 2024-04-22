@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Api request in old way</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gitcard{
+            margin: auto;
+            background-color: rgba(159, 154, 238, 0.758);
+            border-radius: 13px;
+            padding: 10px;
+            width: 70%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .top{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .top img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="gitcard">
+    </div>
+</body>
+<script>
+const card = document.querySelector('.gitcard')
+const url = 'https://api.github.com/users/souravhere';
+const xhr = new XMLHttpRequest();
+xhr.open('GET', url);
+xhr.onreadystatechange = () => {
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+        const data = JSON.parse(xhr.responseText)
+        console.log(data.name);
+        console.log(data);
+        card.innerHTML += `
+        <div class="top">
+            <img src="${data.avatar_url}" alt="">
+            <div>
+                <h2>${data.name}</h2>
+                <h4>Followers: ${data.followers}</h4>
+            </div>
+        </div>
+        <div class="mid">
+            <p>${data.bio}</p>
+        </div>
+        <div class="bottom">
+            <h4><i class="ri-community-line"></i> ${data.company}</h4>
+            <h4><i class="ri-twitter-x-line"></i> ${data.twitter_username}</h4>
+        </div>
+        `
+    }
+};
+xhr.send();
+
+</script>
+</html>
