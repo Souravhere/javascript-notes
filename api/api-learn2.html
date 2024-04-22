@@ -93,12 +93,13 @@
             }
         }
         getalluser()
-
-        fetch('https://jsonplaceholder.typicode.com/users')
+        let user = "users"
+        fetch(`https://api.github.com/users/souravhere`)
         .then((e)=>{
+            console.log(e.ok);
+            console.log(e.status);
             return e.json()
         }).then((e)=>{
-            console.log(e);
             console.log(e.name);
         })
         .catch((error)=>{

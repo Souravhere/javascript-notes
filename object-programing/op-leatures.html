@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Orinteaded Programing</title>
+</head>
+<body>
+    <h1>collection of properties and methods</h1>
+    <h2>tolowerCase</h2>
+    <h1>why use oop</h1>
+
+    <p>Constructor function</p>
+    <p>Prototypes</p>
+    <p>Class</p>
+    <p>Instaces (new, this)</p>
+
+    <h1>4 Pillers of oops</h1>
+    <ul>
+        <li>Abstraction</li>
+        <li>Encapsulation</li>
+        <li>Inheritance</li>
+        <li>Polymorphism</li>
+    </ul>
+    <script>
+        const user = {
+            username:"sourav",
+            loginno:8,
+            signedIn:true,
+
+            getUserDetails: function(){
+                console.log("Got user details from db");
+                // this will used to get data out side
+                console.log(`welcome ${this.username}`);
+                // this will give the object (current context)
+                console.log(this);
+            }
+        }
+        // console.log(user);
+        // console.log(user.getUserDetails());
+        // we will get the window context
+        // console.log(this);
+
+        // Constructor function
+        // this is the part of Constructor Function
+        // const date = new Date()
+        // const promise = new Promise()
+
+        function userf(uname,loginno,islogin){
+            this.uname = uname;
+            this.loginno = loginno;
+            this.islogin = islogin
+            // console.log(uname,loginno,islogin);
+            return this //not neccery allready define 
+        }
+        const userone = new userf('sourav', 3 ,true)
+        const usertwo = new userf('ram', 5 ,false)
+        const userthree = new userf('satish', 2 ,true)
+        // use of new 
+        // new object cerated
+        // constructor function call
+        // this (inject all data)
+        // we will get output
+        console.log(userone.constructor);
+        console.log(usertwo);
+        console.log(userthree);
+        </script>
+</body>
+</html>
